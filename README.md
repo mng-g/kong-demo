@@ -18,7 +18,7 @@ docker compose -f compose-microservices.yaml up -d
 ```
 
 **STEP 2:**
-Add go-api-hello.it to your DNS or etc/hosts file
+- Add go-api-hello.it to your DNS or etc/hosts file
 
 **STEP: 3**
 ```bash
