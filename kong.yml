@@ -1,0 +1,47 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+- host: go-api-hello.it
+  name: hello-1-service
+  port: 9001
+  protocol: http
+  routes:
+    - name: hello-1-route
+      paths:
+      - /h1
+      strip_path: true
+- host: go-api-hello.it
+  name: hello-2-service
+  port: 9002
+  protocol: http
+  routes:
+    - name: hello-2-route
+      paths:
+      - /h2
+      strip_path: true
+- host: go-api-hello.it
+  name: hello-3-service
+  port: 9003
+  protocol: http
+  routes:
+    - name: hello-3-route
+      paths:
+      - /h3
+      strip_path: true
+
+plugins:
+  - name: rate-limiting
+    service: hello-2-service
+    config:
+      minute: 5
+  - name: key-auth
+    service: hello-3-service
+    config:
+      key_names:
+      - apikey
+
+consumers:
+- username: johndoe
+  keyauth_credentials:
+  - key: secret_value

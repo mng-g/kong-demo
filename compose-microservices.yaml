@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  api-hello-1:
+    build: 
+      context: ./go-api-hello-1
+      args:
+        IMAGE_VERSION: ${IMAGE_VERSION}
+    image: go-api-hello-1:${IMAGE_VERSION}
+    ports:
+      - "9001:9001"
+
+  api-hello-2:
+    build: 
+      context: ./go-api-hello-2
+      args:
+        IMAGE_VERSION: ${IMAGE_VERSION}
+    image: go-api-hello-2:${IMAGE_VERSION}
+    ports:
+      - "9002:9002"
+
+  api-hello-3:
+    build: 
+      context: ./go-api-hello-3
+      args:
+        IMAGE_VERSION: ${IMAGE_VERSION}
+    image: go-api-hello-3:${IMAGE_VERSION}
+    ports:
+      - "9003:9003"
