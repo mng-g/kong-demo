@@ -1,6 +1,6 @@
 # Kong Demo:
 
-### RUN:
+### TO START:
 
 In this demo we are going to start 3 simple service that responds:
 - http://go-api-hello.it:9001 -> hello from 1
